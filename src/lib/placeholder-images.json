@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Abstract design project",
+      "imageUrl": "https://picsum.photos/seed/design1/400/300",
+      "imageHint": "abstract design"
+    },
+    {
+      "id": "project-2",
+      "description": "Tech startup draft",
+      "imageUrl": "https://picsum.photos/seed/tech1/400/300",
+      "imageHint": "technology code"
+    },
+    {
+      "id": "project-3",
+      "description": "Creative writing pieces",
+      "imageUrl": "https://picsum.photos/seed/writing1/400/300",
+      "imageHint": "writing desk"
+    }
+  ]
 }
