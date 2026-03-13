@@ -15,12 +15,12 @@ import {
   Sparkles
 } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 
 const navItems = [
   { name: 'Home', icon: Home, href: '/' },
   { name: 'Search', icon: Search, href: '/search' },
   { name: 'Resources', icon: BookOpen, href: '/resources' },
+  { name: 'Settings', icon: Settings, href: '/settings' },
 ]
 
 const projectCategories = [
@@ -80,14 +80,6 @@ export function Sidebar() {
         </div>
       </nav>
 
-      <div className="p-4 border-t border-white/5 mt-auto">
-        <Link href="/settings">
-          <Button variant="ghost" className="w-full justify-start gap-3 text-muted-foreground hover:bg-white/5 hover:text-white rounded-xl">
-            <Settings className="w-5 h-5" />
-            <span className="text-sm font-medium">Settings</span>
-          </Button>
-        </Link>
-      </div>
     </aside>
   )
 }
