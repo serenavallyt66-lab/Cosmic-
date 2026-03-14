@@ -55,7 +55,7 @@ export function AIPrompt() {
               onChange={(e) => setPrompt(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask anything or generate a project..."
-              className="flex-1 bg-transparent border-none focus-visible:ring-0 text-lg py-3 resize-none min-h-[60px] max-h-[300px] overflow-y-auto overflow-x-hidden overscroll-contain [touch-action:pan-y] [word-break:break-word]"
+              className="flex-1 bg-transparent border-none focus-visible:ring-0 text-lg py-3 resize-none min-h-[60px] max-h-[300px] overflow-y-auto overflow-x-hidden whitespace-pre-wrap [overflow-wrap:anywhere] overscroll-y-contain touch-pan-y [-webkit-overflow-scrolling:touch]"
             />
           </div>
           <div className="flex items-center justify-between px-3 py-2 border-t border-white/5">
