@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   ArrowUp,
@@ -22,7 +22,18 @@ import {
 const headerIconBtn =
   "flex h-8 w-8 items-center justify-center rounded-md text-slate-300 hover:bg-white/10 hover:text-white transition-all duration-200 ease-out";
 
+
 export default function TwoColumnLayoutPage() {
+  return (
+    <Suspense
+      fallback={<div className="min-h-screen bg-[#0f1017]" aria-busy="true" />}
+    >
+      <TwoColumnLayoutPageContent />
+    </Suspense>
+  );
+}
+
+function TwoColumnLayoutPageContent() {
   const searchParams = useSearchParams();
   const [mode, setMode] = useState<"preview" | "code" | "split">("preview");
   const [previewDevice, setPreviewDevice] = useState<"desktop" | "mobile">("desktop");
