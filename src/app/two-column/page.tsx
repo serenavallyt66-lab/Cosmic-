@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   ArrowUp,
   Code,
@@ -14,6 +15,7 @@ import {
   Smartphone,
   SplitSquareHorizontal,
   Upload,
+  X,
   ZoomIn,
 } from "lucide-react";
 
@@ -21,8 +23,10 @@ const headerIconBtn =
   "flex h-8 w-8 items-center justify-center rounded-md text-slate-300 hover:bg-white/10 hover:text-white transition-all duration-200 ease-out";
 
 export default function TwoColumnLayoutPage() {
+  const searchParams = useSearchParams();
   const [mode, setMode] = useState<"preview" | "code" | "split">("preview");
   const [previewDevice, setPreviewDevice] = useState<"desktop" | "mobile">("desktop");
+  const [activePlan, setActivePlan] = useState<string | null>(searchParams.get("plan"));
 
   return (
     <div className="min-h-screen bg-[#0f1017] p-2 text-white">
@@ -82,6 +86,19 @@ export default function TwoColumnLayoutPage() {
               <div className="space-y-2">
                 <h2 className="text-xl font-semibold text-gray-100">Chat Workspace</h2>
                 <p className="text-sm text-gray-400">Describe your app idea and AI will generate trusted production-ready UI.</p>
+
+                {activePlan && (
+                  <div className="inline-flex items-center gap-2 rounded-full border border-rose-400/40 bg-rose-500/10 px-3 py-1 text-xs font-semibold text-rose-200">
+                    <span>Plan: {activePlan}</span>
+                    <button
+                      onClick={() => setActivePlan(null)}
+                      className="grid h-4 w-4 place-items-center rounded-full text-rose-100 hover:bg-white/10"
+                      aria-label="Dismiss selected plan"
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-3 text-sm text-gray-400">
