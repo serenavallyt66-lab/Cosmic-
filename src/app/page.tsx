@@ -1,9 +1,6 @@
-"use client"
-
 import { Sidebar } from "@/components/Sidebar"
-import { AIPrompt } from "@/components/AIPrompt"
+import { ChatInput } from "@/components/ChatInput"
 import { ProjectCard } from "@/components/ProjectCard"
-import { SearchDialog } from "@/components/SearchDialog"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 export default function Home() {
@@ -15,37 +12,30 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-[#0f0f10] text-white">
       <Sidebar />
-      <SearchDialog />
-      
-      <main className="flex-1 main-gradient-bg overflow-y-auto">
-        <div className="max-w-6xl mx-auto px-6 py-12 space-y-24">
-          
-          {/* Welcome & AI Prompt Focal Point */}
-          <section className="space-y-12 py-20">
-            <div className="text-center space-y-4">
-              <h1 className="text-5xl md:text-6xl font-headline font-bold tracking-tight text-white drop-shadow-sm">
-                Let's build something, Valt
-              </h1>
-              <p className="text-white/70 text-lg font-medium">
-                Unleash your creativity with Lovable's reasoning and generation capabilities.
+
+      <main className="flex-1 overflow-y-auto">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-14 space-y-14">
+          <section className="space-y-6 pt-8">
+            <div className="text-center space-y-3">
+              <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">Build your next product with AI</h1>
+              <p className="text-sm md:text-base text-gray-400">
+                Start from a prompt, choose a template, and ship faster with a modern builder workflow.
               </p>
             </div>
-            
-            <AIPrompt />
+
+            <ChatInput />
           </section>
 
-          {/* Recent Activity */}
-          <section className="space-y-8">
+          <section className="space-y-5">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold tracking-tight text-white">Recent Activity</h2>
-              <button className="text-sm font-semibold text-white/60 hover:text-white transition-colors">View all projects</button>
+              <h2 className="text-xl md:text-2xl font-semibold tracking-tight">Recent projects</h2>
             </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
               {recentProjects.map((project, idx) => (
-                <ProjectCard 
+                <ProjectCard
                   key={idx}
                   title={project.title}
                   lastAccessed={project.lastAccessed}
@@ -55,26 +45,7 @@ export default function Home() {
               ))}
             </div>
           </section>
-
-          {/* Featured Templates/Resources Placeholder */}
-          <section className="bg-black/10 backdrop-blur-sm rounded-3xl p-8 border border-white/5 space-y-6">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <h3 className="text-xl font-bold">New Templates</h3>
-                <p className="text-sm text-white/60 font-medium">Jumpstart your next project with these AI-enhanced drafts.</p>
-              </div>
-              <button className="bg-primary hover:bg-accent px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 shadow-xl shadow-primary/20">
-                Explore Resources
-              </button>
-            </div>
-          </section>
-
         </div>
-        
-        {/* Footer info */}
-        <footer className="py-12 px-6 text-center text-white/20 text-xs font-medium uppercase tracking-[0.2em]">
-          Powered by Lovable Intelligence • Built with passion
-        </footer>
       </main>
     </div>
   )
